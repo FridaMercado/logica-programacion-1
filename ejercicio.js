@@ -1,4 +1,5 @@
-const prompt = require("prompt-sync")();
+//const prompt = require("prompt-sync")();
+
 
 /*
 Crear un programa en Javascript que realice lo siguiente:
@@ -33,26 +34,24 @@ let num3 = Number(prompt("Ingresa otro numero:"));
 let arrayNum= []
 arrayNum.push(num1,num2,num3);
 
-let temp = 0;
 
 function ordenamiento (array) {
-for ( let i = 0; i < array.length-1; i++ ) {
-    for ( let j = 0; j < array.length-1; j++ ) {
-        if( array[j] > array[j+1] ){
-            temp = array[j];
-            array[j] = array[j+1];
-            array[j+1] = temp;
+    let temp = 0;
+    for ( let i = 0; i < array.length-1; i++ ) {
+        for ( let j = 0; j < array.length-1; j++ ) {
+            if( array[j] > array[j+1] ){
+                temp = array[j];
+                array[j] = array[j+1];
+                array[j+1] = temp;
+            }
         }
     }
-}
-console.log(array);
+    return array;
 }
 
-ordenamiento(arrayNum);
-ordenamiento([4,4,2]);
-ordenamiento([4,2,4]);
-ordenamiento([2,4,4]);
+let may = ordenamiento(arrayNum);
+let men = [...may].reverse();
 
-let contenedor = document.getElementsByClassName("muestra");
-contenedor.innerHTML = "<p>" + arrayNum.join(", ") + "</p>";
-contenedor.innerHTML = "<p>" + arrayNum.join(", ") + "</p>";
+console.log("Array de menor a mayor: " + may);
+console.log("Array de mayor a menor: " + men);
+
